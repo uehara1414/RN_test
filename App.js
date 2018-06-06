@@ -34,7 +34,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-        <Icon name="add-to-list" size={30} color="#900" />
+        <Icon name="ios-body" size={30} color="#900" />
       </View>
     );
   }
