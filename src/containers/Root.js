@@ -5,6 +5,8 @@ import CounterText from './CounterText'
 
 import firebase from 'react-native-firebase';
 
+import StatusEditView from './StatusEditView'
+
 export default class Root extends React.Component {
   constructor() {
     super();
@@ -18,6 +20,8 @@ export default class Root extends React.Component {
   }
 
   render() {
+    return <StatusEditView/>
+    /*
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -60,6 +64,7 @@ export default class Root extends React.Component {
         </View>
       </ScrollView>
     );
+    */
   }
 }
 
