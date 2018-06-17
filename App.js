@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import firebase from 'react-native-firebase';
 
@@ -20,6 +21,7 @@ export default class App extends React.Component {
       <ScrollView>
         <View style={styles.container}>
         <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
+        <Icon name="rocket" size={30} color="#900" />
         <Text style={styles.welcome}>
           Welcome to the React Native{'\n'}Firebase starter project!
         </Text>
