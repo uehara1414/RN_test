@@ -1,5 +1,6 @@
 import firebase from 'react-native-firebase';
 import {syncCount, syncStatus} from '../actions'
+import uuidv4 from 'uuid/v4';
 
 const firebaseDb = firebase.database().ref('sampleUserID');
 
@@ -11,7 +12,8 @@ export const loadCount = () => {
         dispatch(syncCount(snapshot.val()))
       },
       (error) => {
-        dispatch(() => {})
+        dispatch(() => {
+        })
       }
     )
   }
@@ -24,7 +26,8 @@ export const loadStatus = () => {
         dispatch(syncStatus(snapshot.val()))
       },
       (error) => {
-        dispatch(() => {})
+        dispatch(() => {
+        })
       }
     )
   }
@@ -37,6 +40,15 @@ export const setStatus = (text) => {
         text
       }
     )
+  }
+}
+
+export const addStatus = (text) => {
+  return dispatch => {
+    let id = uuidv4();
+    firebaseDb.child(id).set({
+      text
+    })
   }
 }
 
