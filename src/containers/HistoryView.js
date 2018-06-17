@@ -4,7 +4,7 @@ import {StyleSheet, Button, Image, Text, View, ScrollView} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {addCount} from '../firebase'
 import Icon from 'react-native-vector-icons/Ionicons';
-import {_generateDateStr} from '../utils'
+import HistoryItem from '../components/HistoryItem'
 
 import {
   Actions,
@@ -18,11 +18,8 @@ class HistoryView extends React.Component {
     console.log('s', state)
     let textList = [];
     Object.keys(state.status).forEach((key) => {
-      textList.push(<Text key={key} onPress={
-        () => {Actions.editStatus({statusID: key})}
-      }>
-        {state.status[key].text}({_generateDateStr(state.status[key].updatedAt)})
-        </Text>)
+      textList.push(<HistoryItem id={key} status={state.status[key]}>
+        </HistoryItem>)
     })
 
     return (
@@ -57,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    alignSelf: 'stretch',
   },
   label: {
     color: '#e99192',

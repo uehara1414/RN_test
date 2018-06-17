@@ -39,6 +39,7 @@ class StatusEditView extends React.Component {
         <Button
           onPress={() => {
             this.props.setStatus(
+              this.state.id,
               this.state.text
             )
             Actions.history()
