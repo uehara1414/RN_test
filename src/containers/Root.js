@@ -3,6 +3,11 @@ import {StyleSheet, Platform, Image, Text, View, ScrollView} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CounterText from './CounterText'
 
+import {
+  Scene,
+  Router,
+} from 'react-native-router-flux';
+
 import firebase from 'react-native-firebase';
 
 import StatusEditView from './StatusEditView'
@@ -20,7 +25,15 @@ export default class Root extends React.Component {
   }
 
   render() {
-    return <StatusEditView/>
+    return (
+      <Router>
+        <Scene key="root">
+          <Scene key="pageA" initial component={StatusEditView} title="Edit Status" />
+          <Scene key="pageB" component={Text} title="PageB" />
+          <Scene key="pageC" component={Text} title="PageC" />
+        </Scene>
+      </Router>
+    )
     /*
     return (
       <ScrollView>
