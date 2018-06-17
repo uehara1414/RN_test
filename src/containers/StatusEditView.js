@@ -11,9 +11,11 @@ class StatusEditView extends React.Component {
 
   constructor(props){
     super(props);
-    const state = this.props.state;
+    const status = this.props.state.status[this.props.statusID];
+
     this.state = {
-      text: state.status.text
+      id: this.props.statusID,
+      text: status.text
     };
   }
 
@@ -37,6 +39,7 @@ class StatusEditView extends React.Component {
         <TouchableOpacity
           onPress={() => {
             this.props.setStatus(
+              this.state.id,
               this.state.text
             )
             Actions.history()

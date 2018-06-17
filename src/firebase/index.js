@@ -33,11 +33,13 @@ export const loadStatus = () => {
   }
 }
 
-export const setStatus = (text) => {
+export const setStatus = (id, text) => {
+  const updatedAt = new Date().toString();
   return dispatch => {
-    firebaseDb.child('status').set(
+    firebaseDb.child('status').child(id).set(
       {
-        text
+        text,
+        updatedAt
       }
     )
   }
@@ -46,8 +48,10 @@ export const setStatus = (text) => {
 export const addStatus = (text) => {
   return dispatch => {
     let id = uuidv4();
+    const updatedAt = new Date().toString();
     firebaseDb.child('status').child(id).set({
-      text
+      text,
+      updatedAt
     })
   }
 }

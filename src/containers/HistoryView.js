@@ -4,6 +4,7 @@ import {StyleSheet, Button, Image, Text, View, ScrollView} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {addCount} from '../firebase'
 import Icon from 'react-native-vector-icons/Ionicons';
+import {_generateDateStr} from '../utils'
 
 import {
   Actions,
@@ -17,7 +18,11 @@ class HistoryView extends React.Component {
     console.log('s', state)
     let textList = [];
     Object.keys(state.status).forEach((key) => {
-      textList.push(<Text>{state.status[key].text}</Text>)
+      textList.push(<Text key={key} onPress={
+        () => {Actions.editStatus({statusID: key})}
+      }>
+        {state.status[key].text}({_generateDateStr(state.status[key].updatedAt)})
+        </Text>)
     })
 
     return (
