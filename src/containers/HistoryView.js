@@ -14,12 +14,15 @@ class HistoryView extends React.Component {
 
   render() {
     const state = this.props.state;
+    console.log('s', state)
+    let textList = [];
+    Object.keys(state.status).forEach((key) => {
+      textList.push(<Text>{state.status[key].text}</Text>)
+    })
 
     return (
       <View style={styles.container}>
-        <Text>
-          This is history page.
-        </Text>
+        {textList}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
           onPress={() => { Actions.addStatus() }}

@@ -1,13 +1,10 @@
 import {SYNC_STATUS} from '../types'
 
 
-const status = (state = null, action) => {
+const status = (state = [], action) => {
   switch (action.type) {
     case SYNC_STATUS:
-      const newState = {
-        text: action.text
-      }
-      return newState;
+      return action.text;
     default:
       return state
   }
