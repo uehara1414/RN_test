@@ -1,7 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {StyleSheet, Platform, Image, Text, View, ScrollView, TextInput} from 'react-native';
+import {StyleSheet, Platform, Image, Text, View, ScrollView, TextInput, TouchableOpacity} from 'react-native';
 import {addCount} from '../firebase'
+
+import {
+  Actions,
+} from 'react-native-router-flux';
 
 class StatusEditView extends React.Component {
 
@@ -48,6 +52,12 @@ class StatusEditView extends React.Component {
           onChangeText={(age) => this.setState({age})}
           value={this.state.age}
         />
+
+        <TouchableOpacity
+          onPress={() => {Actions.history()}}
+        >
+          <Text>Submit</Text>
+        </TouchableOpacity>
       </View>
     );
   }

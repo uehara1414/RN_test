@@ -11,6 +11,7 @@ import {
 import firebase from 'react-native-firebase';
 
 import StatusEditView from './StatusEditView'
+import HistoryView from './HistoryView'
 
 export default class Root extends React.Component {
   constructor() {
@@ -28,8 +29,8 @@ export default class Root extends React.Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="pageA" initial component={StatusEditView} title="Edit Status" />
-          <Scene key="pageB" component={Text} title="PageB" />
+          <Scene key="editStatus" initial component={StatusEditView} title="Edit Status" />
+          <Scene key="history" component={HistoryView} title="History" />
           <Scene key="pageC" component={Text} title="PageC" />
         </Scene>
       </Router>
