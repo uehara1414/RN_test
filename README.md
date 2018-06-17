@@ -21,7 +21,7 @@ react-native run-ios
 
 ### android
 ```sh
-react-native run-ios
+react-native run-android
 ```
 
 This project is using [React Native Firebase Starter](https://github.com/invertase/react-native-firebase-starter).
