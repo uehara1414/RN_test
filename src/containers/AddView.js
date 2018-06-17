@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {StyleSheet, Platform, Image, Text, View, ScrollView, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Platform, Image, Button, Text, View, ScrollView, TextInput, TouchableOpacity} from 'react-native';
 import {addStatus} from '../firebase'
 
 import {
@@ -9,7 +9,7 @@ import {
 
 class AddView extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       text: ''
@@ -27,22 +27,27 @@ class AddView extends React.Component {
         <TextInput
           style={styles.text}
           onChangeText={(text) => this.setState({text})}
-          multiline = {true}
-          maxLength = {256}
-          numberOfLines = {5}
+          multiline={true}
+          maxLength={256}
+          numberOfLines={5}
           value={this.state.text}
         />
-
-        <TouchableOpacity
+        <Button
           onPress={() => {
             this.props.addStatus(
               this.state.text
             )
             Actions.history()
           }}
-        >
-          <Text>Submit</Text>
-        </TouchableOpacity>
+          title="Complete"
+          color="#841584"
+        />
+        <Button
+          onPress={() => {
+            Actions.history()
+          }}
+          title="Cancel"
+        />
       </View>
     );
   }
