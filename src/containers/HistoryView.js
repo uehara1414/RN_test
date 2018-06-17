@@ -22,10 +22,14 @@ class HistoryView extends React.Component {
 
     return (
       <View style={styles.container}>
-        {textList}
+        <ScrollView>
+          {textList}
+        </ScrollView>
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={() => { Actions.addStatus() }}
+          onPress={() => {
+            Actions.addStatus()
+          }}
         />
       </View>
     );
