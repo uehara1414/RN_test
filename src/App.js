@@ -5,13 +5,14 @@ import { Provider } from 'react-redux';
 import Root from './containers/Root'
 
 import app from './reducers'
-import {loadCount} from './firebase'
+import {loadCount, loadStatus} from './firebase'
 
 let store = createStore(app,
   applyMiddleware(thunk)
 );
 
 store.dispatch(loadCount());
+store.dispatch(loadStatus());
 
 export default class App extends React.Component {
   render() {

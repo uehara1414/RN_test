@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Platform, Image, Text, View, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CounterText from './CounterText'
+import {connect} from 'react-redux';
 
 import {
   Scene,
@@ -13,7 +14,7 @@ import firebase from 'react-native-firebase';
 import StatusEditView from './StatusEditView'
 import HistoryView from './HistoryView'
 
-export default class Root extends React.Component {
+class Root extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -26,15 +27,18 @@ export default class Root extends React.Component {
   }
 
   render() {
-    return (
-      <Router>
-        <Scene key="root">
-          <Scene key="editStatus" initial component={StatusEditView} title="Edit Status" />
-          <Scene key="history" component={HistoryView} title="History" />
-          <Scene key="pageC" component={Text} title="PageC" />
-        </Scene>
-      </Router>
-    )
+    const status = this.props.state.status;
+
+    if (!status) {
+      return <View/>
+    }
+    return <Router>
+      <Scene key="root">
+        <Scene key="editStatus" initial component={StatusEditView} title="Edit Status" />
+        <Scene key="history" component={HistoryView} title="History" />
+        <Scene key="pageC" component={Text} title="PageC" />
+      </Scene>
+    </Router>
     /*
     return (
       <ScrollView>
@@ -81,6 +85,10 @@ export default class Root extends React.Component {
     */
   }
 }
+
+export default connect(
+  state => ({state}),
+)(Root);
 
 const styles = StyleSheet.create({
   container: {

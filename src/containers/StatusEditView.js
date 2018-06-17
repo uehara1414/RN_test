@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {StyleSheet, Platform, Image, Text, View, ScrollView, TextInput, TouchableOpacity} from 'react-native';
-import {addCount} from '../firebase'
+import {setStatus} from '../firebase'
 
 import {
   Actions,
@@ -11,16 +11,19 @@ class StatusEditView extends React.Component {
 
   constructor(props){
     super(props);
+    const state = this.props.state;
+    console.log('state', state)
     this.state = {
-      sex: 'Male',
-      height: '170',
-      weight: '60',
-      age: '22',
+      sex: state.status.sex,
+      height: state.status.height,
+      weight: state.status.weight,
+      age: state.status.age,
     };
   }
 
   render() {
     const state = this.props.state;
+    console.log(state);
 
     return (
       <View style={styles.container}>
@@ -54,7 +57,15 @@ class StatusEditView extends React.Component {
         />
 
         <TouchableOpacity
-          onPress={() => {Actions.history()}}
+          onPress={() => {
+            this.props.setStatus(
+              this.state.sex,
+              this.state.height,
+              this.state.weight,
+              this.state.age
+            )
+            Actions.history()
+          }}
         >
           <Text>Submit</Text>
         </TouchableOpacity>
@@ -64,7 +75,7 @@ class StatusEditView extends React.Component {
 }
 
 const mapDispatchToProps = {
-  addCount,
+  setStatus,
 };
 
 
