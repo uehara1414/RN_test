@@ -5,10 +5,7 @@ const status = (state = null, action) => {
   switch (action.type) {
     case SYNC_STATUS:
       const newState = {
-        sex: action.val.sex,
-        height: action.val.height,
-        weight: action.val.weight,
-        age: action.val.age,
+        text: action.text
       }
       return newState;
     default:

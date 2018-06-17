@@ -30,14 +30,11 @@ export const loadStatus = () => {
   }
 }
 
-export const setStatus = (sex, height, weight, age) => {
+export const setStatus = (text) => {
   return dispatch => {
     firebaseDb.child('status').set(
       {
-        sex,
-        height,
-        weight,
-        age
+        text
       }
     )
   }
