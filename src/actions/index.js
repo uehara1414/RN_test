@@ -1,4 +1,4 @@
-import {SYNC_COUNT, SYNC_STATUS} from '../types'
+import {SYNC_STATUS} from '../types'
 
 
 export const syncStatus = (val) => {
