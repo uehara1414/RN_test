@@ -23,11 +23,17 @@ export default class HistoryItem extends React.Component {
       >
         <Text
           style={styles.text}
-          onPress={() => {Actions.editStatus({statusID: this.props.id})}}
+          onPress={() => {
+            Actions.editStatus({statusID: this.props.id})
+          }}
         >
           {this.props.status.text}
         </Text>
-        <Text style={styles.date}>
+        <Text style={styles.date}
+              onPress={() => {
+                Actions.editStatus({statusID: this.props.id})
+              }}
+        >
           ({_generateDateStr(this.props.status.updatedAt)})
         </Text>
       </View>
@@ -42,6 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
     backgroundColor: '#fdfffd',
+    width: 300
   },
   text: {
     backgroundColor: '#ffffff',
