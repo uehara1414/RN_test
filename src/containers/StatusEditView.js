@@ -25,7 +25,7 @@ class StatusEditView extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.label}>
-          Content
+          Write your memo
         </Text>
         <TextInput
           style={styles.text}
