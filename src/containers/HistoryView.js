@@ -22,7 +22,7 @@ class HistoryView extends React.Component {
         </Text>
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={() => { Actions.editStatus() }}
+          onPress={() => { Actions.addStatus() }}
         />
       </View>
     );

@@ -1,19 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {StyleSheet, Platform, Image, Text, View, ScrollView, TextInput, TouchableOpacity} from 'react-native';
-import {setStatus} from '../firebase'
+import {addStatus} from '../firebase'
 
 import {
   Actions,
 } from 'react-native-router-flux';
 
-class StatusEditView extends React.Component {
+class AddView extends React.Component {
 
   constructor(props){
     super(props);
-    const state = this.props.state;
     this.state = {
-      text: state.status.text
+      text: ''
     };
   }
 
@@ -36,7 +35,7 @@ class StatusEditView extends React.Component {
 
         <TouchableOpacity
           onPress={() => {
-            this.props.setStatus(
+            this.props.addStatus(
               this.state.text
             )
             Actions.history()
@@ -50,14 +49,14 @@ class StatusEditView extends React.Component {
 }
 
 const mapDispatchToProps = {
-  setStatus,
+  addStatus,
 };
 
 
 export default connect(
   state => ({state}),
   mapDispatchToProps
-)(StatusEditView);
+)(AddView);
 
 const styles = StyleSheet.create({
   container: {

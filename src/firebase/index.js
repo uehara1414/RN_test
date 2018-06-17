@@ -46,7 +46,7 @@ export const setStatus = (text) => {
 export const addStatus = (text) => {
   return dispatch => {
     let id = uuidv4();
-    firebaseDb.child(id).set({
+    firebaseDb.child('status').child(id).set({
       text
     })
   }

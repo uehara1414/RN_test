@@ -10,6 +10,6 @@ export const syncCount = (count) => {
 export const syncStatus = (val) => {
   return {
     type: SYNC_STATUS,
-    text: val.text,
+    text: val ? val.text : '',
   }
 };

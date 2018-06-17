@@ -13,6 +13,7 @@ import firebase from 'react-native-firebase';
 
 import StatusEditView from './StatusEditView'
 import HistoryView from './HistoryView'
+import AddView from './AddView'
 
 class Root extends React.Component {
   constructor() {
@@ -34,9 +35,9 @@ class Root extends React.Component {
     }
     return <Router>
       <Scene key="root">
-        <Scene key="editStatus" initial component={StatusEditView} title="Edit Status" />
-        <Scene key="history" component={HistoryView} title="History" />
-        <Scene key="pageC" component={Text} title="PageC" />
+        <Scene key="history" initial component={HistoryView} title="History" />
+        <Scene key="editStatus" component={StatusEditView} title="Edit Status" />
+        <Scene key="addStatus" component={AddView} title="Add Status" />
       </Scene>
     </Router>
     /*
