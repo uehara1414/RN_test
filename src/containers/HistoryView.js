@@ -5,6 +5,11 @@ import ActionButton from 'react-native-action-button';
 import {addCount} from '../firebase'
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import {
+  Actions,
+} from 'react-native-router-flux';
+
+
 class HistoryView extends React.Component {
 
   render() {
@@ -17,7 +22,7 @@ class HistoryView extends React.Component {
         </Text>
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={() => { console.log("hi")}}
+          onPress={() => { Actions.editStatus() }}
         />
       </View>
     );
