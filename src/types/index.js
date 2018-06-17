@@ -1,1 +1,1 @@
-export const ADD_COUNT = 'ADD_COUNT';
+export const SYNC_COUNT = 'SYNC_COUNT';

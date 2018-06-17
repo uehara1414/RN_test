@@ -1,8 +1,9 @@
-import {ADD_COUNT} from '../types'
+import {SYNC_COUNT} from '../types'
 
-export const addCount = () => {
+export const syncCount = (count) => {
   return {
-    type: ADD_COUNT,
+    type: SYNC_COUNT,
+    count: count,
   }
 };
 

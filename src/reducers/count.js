@@ -1,9 +1,9 @@
-import {ADD_COUNT} from '../types'
+import {SYNC_COUNT} from '../types'
 
 const count = (state = 0, action) => {
   switch (action.type) {
-    case ADD_COUNT:
-      return state += 1;
+    case SYNC_COUNT:
+      return action.count;
     default:
       return state
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {StyleSheet, Platform, Image, Text, View, ScrollView} from 'react-native';
-import {addCount} from '../actions'
+import {addCount} from '../firebase'
 
 class CounterText extends React.Component {
 
@@ -10,7 +10,7 @@ class CounterText extends React.Component {
 
     return (
       <Text style={styles.label}
-            onPress={this.props.addCount}
+            onPress={() => {this.props.addCount(state.count)}}
       >
         ----- Push me! count is {state.count} -----
       </Text>
