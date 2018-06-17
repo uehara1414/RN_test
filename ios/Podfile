@@ -1,23 +1,26 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
-target 'RN_test' do
+target 'RNFirebaseStarter' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for RN_test
+  # Pods for RNFirebaseStarter
 
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 4.13.0'
 
-  target 'RN_test-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
-  end
-
-  target 'RN_testTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
+  pod 'Firebase/AdMob'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/DynamicLinks'
+  pod 'Firebase/Performance'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Storage'
+  
+  pod 'Fabric', '~> 1.7.6'
+  pod 'Crashlytics', '~> 3.10.1'
 end

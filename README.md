@@ -8,6 +8,10 @@ npm install -g react-native-cli
 npm install
 ```
 
+### firebase
+1. Add GoogleService-Info.plist to ios/
+2. Add google-services.json to android/app/
+
 ## Run
 
 ### ios
@@ -19,3 +23,5 @@ react-native run-ios
 ```sh
 react-native run-ios
 ```
+
+This project is using [React Native Firebase Starter](https://github.com/invertase/react-native-firebase-starter).
